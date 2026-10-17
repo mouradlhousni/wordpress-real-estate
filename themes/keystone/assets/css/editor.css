@@ -1,0 +1,43 @@
+/* Block editor: mirror the front-end typography. */
+@font-face {
+	font-family: Manrope;
+	src: url(../fonts/manrope-latin.woff2) format("woff2");
+	font-weight: 200 800;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Instrument Serif";
+	src: url(../fonts/instrument-serif-latin-italic.woff2) format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+body {
+	font-family: Manrope, system-ui, sans-serif;
+	font-size: 17px;
+	line-height: 1.65;
+	color: #16130f;
+	background: #faf7f2;
+}
+
+h1,
+h2,
+h3,
+.editor-post-title__input {
+	font-family: Manrope, system-ui, sans-serif;
+	font-weight: 700;
+	letter-spacing: -0.035em;
+	line-height: 1.08;
+}
+
+em.serif,
+h1 em,
+h2 em,
+h3 em {
+	font-family: "Instrument Serif", Georgia, serif;
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+}

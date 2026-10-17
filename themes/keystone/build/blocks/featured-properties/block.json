@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "keystone/featured-properties",
+  "version": "1.0.0",
+  "title": "Featured Properties",
+  "category": "widgets",
+  "icon": "building",
+  "description": "A grid of properties from the Keystone catalogue, optionally filtered by city and status.",
+  "keywords": [
+    "real estate",
+    "listings",
+    "homes"
+  ],
+  "textdomain": "keystone",
+  "attributes": {
+    "count": {
+      "type": "number",
+      "default": 3
+    },
+    "city": {
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "default": ""
+    },
+    "featuredOnly": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

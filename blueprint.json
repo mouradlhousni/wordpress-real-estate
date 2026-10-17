@@ -1,0 +1,66 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Keystone Realty – live demo",
+		"description": "Custom real estate theme and plugin, seeded with demo listings. Demo mode is on: forms validate but store and send nothing.",
+		"author": "mouradlhousni",
+		"categories": [
+			"Theme",
+			"Plugin"
+		]
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"KEYSTONE_DEMO_MODE": true,
+				"KEYSTONE_STATIC_BUILD": false
+			},
+			"method": "rewrite-wp-config"
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/mouradlhousni/wordpress-real-estate",
+				"ref": "master",
+				"refType": "branch",
+				"path": "plugins/keystone-properties"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "keystone-properties"
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/mouradlhousni/wordpress-real-estate",
+				"ref": "master",
+				"refType": "branch",
+				"path": "themes/keystone"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "keystone"
+			}
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"permalink_structure": "/%postname%/"
+			}
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp keystone seed --images=8"
+		}
+	]
+}
